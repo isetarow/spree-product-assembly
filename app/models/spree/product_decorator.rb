@@ -8,8 +8,8 @@ Spree::Product.class_eval do
 
   scope :individual_saled, -> { where(individual_sale: true) }
 
-  scope :search_can_be_part, ->(query){ not_deleted.available.joins(:master)
-    .where(arel_table["name"].matches("%#{query}%").or(Spree::Variant.arel_table["sku"].matches("%#{query}%")))
+  scope :search_can_be_part, ->(query){ not_deleted.available.joins(:master).joins(:translations)
+    .where(["spree_product_translations.name like ? or spree_variants.sku like ?", "%#{query}%", "%#{query}%"])
     .where(can_be_part: true)
     .limit(30)
   }
