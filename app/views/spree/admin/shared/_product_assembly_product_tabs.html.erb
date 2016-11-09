@@ -1,3 +1,5 @@
-<%= content_tag :li , class: ('active' if current == 'Parts') do %>
-  <%= link_to_with_icon 'th', Spree.t(:parts), admin_product_parts_url(@product) %>
+<% if spree_current_user.has_spree_role? :admin %>
+    <%= content_tag :li, class: ('active' if current == 'Parts') do %>
+        <%= link_to_with_icon 'th', Spree.t(:parts), admin_product_parts_url(@product) %>
+    <% end %>
 <% end %>

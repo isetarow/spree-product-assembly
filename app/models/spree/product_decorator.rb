@@ -14,6 +14,9 @@ Spree::Product.class_eval do
     .limit(30)
   }
 
+  scope :has_part, -> { where(Spree::AssembliesPart.where(Spree::Product.arel_table[:id].eq(Spree::AssembliesPart.arel_table[:assembly_id])).exists) }
+  scope :has_no_part, -> { where(Spree::AssembliesPart.where(Spree::Product.arel_table[:id].eq(Spree::AssembliesPart.arel_table[:assembly_id])).exists.not) }
+
   validate :assembly_cannot_be_part, :if => :assembly?
 
   def assembly?
