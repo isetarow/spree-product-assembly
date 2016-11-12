@@ -10,7 +10,8 @@
         <div class="product-image">
           <%= link_to small_image(variant.product, itemprop: "name"), variant.product %>
         </div>
-        <%= link_to truncate(variant.product.name, length: 50), variant.product, class: 'info', itemprop: "name", title: variant.product.name %>
+        <% product_name = variant.product.suppliers.first.present? ? "#{variant.product.name} (#{variant.product.suppliers.first.name})" : variant.product.name %>
+        <%= link_to truncate(product_name, length: 50), variant.product, class: 'info', itemprop: "name", title: variant.product.name %>
 
         <%- if !variant.in_stock? && !part.variant_selection_deferred? %>
           <%- if variant.is_backorderable? %>

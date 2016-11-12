@@ -1,14 +1,14 @@
 ---
 ja:
   spree:
-    available_parts: Available parts
-    can_be_part: Can be part
-    individual_sale: Individual sale
-    no_variants: No variants
-    parts: Parts
-    assembly_cannot_be_part: assembly can't be part
-    product_bundles: Product Bundles
-    parts_included: Parts included
-    part_of_bundle: 'Part of bundle %{sku}'
-    selected_quantity_not_available: Selected quantity not available
-    user_selectable: User Selectable
+    available_parts: 購入可能な商品
+    can_be_part: セットにできる
+    individual_sale: 個別販売する
+    no_variants: 種類がない
+    parts: セット
+    assembly_cannot_be_part: セットにできません
+    product_bundles: バンドル商品
+    parts_included: セットに含まれる商品
+    part_of_bundle: 'バンドル商品 %{sku}'
+    selected_quantity_not_available: 商品が足りません
+    user_selectable: ユーザ選択
